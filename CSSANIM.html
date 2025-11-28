@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ДЗ 13 — Анимации</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* ----------------------------- */
+/*       ЗАДАНИЕ 1 — ЧАСЫ        */
+/* ----------------------------- */
+
+.clock {
+    width: 200px;
+    height: 200px;
+    border: 6px solid black;
+    border-radius: 50%;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    background: black;
+}
+
+.hour {
+    width: 6px;
+    height: 50px;
+    animation: rotateHour 20s linear infinite;
+}
+
+.minute {
+    width: 4px;
+    height: 70px;
+    animation: rotateMin 5s linear infinite;
+}
+
+@keyframes rotateHour {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to   { transform: translateX(-50%) rotate(360deg); }
+}
+
+@keyframes rotateMin {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to   { transform: translateX(-50%) rotate(360deg); }
+}
+
+/* -------------------------------- */
+/*      ЗАДАНИЕ 2 — СТВОРКИ         */
+/* -------------------------------- */
+
+.doors {
+    width: 500px;
+    height: 200px;
+    margin: 50px 0;
+    border: 2px solid black;
+    position: relative;
+    overflow: hidden;
+}
+
+.door {
+    width: 50%;
+    height: 100%;
+    background: gray;
+    position: absolute;
+    top: 0;
+    transition: all 2s;
+}
+
+.left { left: 0; }
+.right { right: 0; }
+
+.doors:hover .left {
+    transform: translateX(-100%);
+}
+.doors:hover .right {
+    transform: translateX(100%);
+}
+
+.text-hidden {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    background: white;
+}
+
+/* моментальное закрытие */
+.doors:not(:hover) .door {
+    transition: none;
+}
+
+/* -------------------------------- */
+/*  ЗАДАНИЕ 3 — ТЕКСТ + КАРТИНКА    */
+/* -------------------------------- */
+
+.block {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    margin: 30px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.block .text {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eee;
+    font-size: 22px;
+}
+
+.block .img-box {
+    width: 50%;
+    overflow: hidden;
+}
+
+.block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s;
+}
+
+.block:hover img {
+    transform: scale(1.2);
+}
+
+/* затемняющая плашка */
+.block::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,0);
+    transition: background 0.3s;
+}
+
+.block:hover::after {
+    background: rgba(0,0,0,0.5);
+}
+</style>
+</head>
+<body>
+
+<!-- ====================== -->
+<!--    ЗАДАНИЕ 1 — ЧАСЫ    -->
+<!-- ====================== -->
+<h2>Задание 1 — Часы</h2>
+
+<div class="clock">
+    <div class="hand hour"></div>
+    <div class="hand minute"></div>
+</div>
+
+<!-- ======================= -->
+<!--   ЗАДАНИЕ 2 — СТВОРКИ   -->
+<!-- ======================= -->
+<h2>Задание 2 — Створки</h2>
+
+<div class="doors">
+    <div class="door left"></div>
+    <div class="door right"></div>
+    <div class="text-hidden">Секретный текст</div>
+</div>
+
+<!-- =============================== -->
+<!--   ЗАДАНИЕ 3 — ТЕКСТ + КАРТИНКА  -->
+<!-- =============================== -->
+<h2>Задание 3 — Текст + картинка</h2>
+
+<div class="block">
+    <div class="text">Текст 1</div>
+    <div class="img-box">
+        <img src="https://picsum.photos/600/400?1">
+    </div>
+</div>
+
+<div class="block">
+    <div class="text">Текст 2</div>
+    <div class="img-box">
+        <img src="https://picsum.photos/600/400?2">
+    </div>
+</div>
+
+<div class="block">
+    <div class="text">Текст 3</div>
+    <div class="img-box">
+        <img src="https://picsum.photos/600/400?3">
+    </div>
+</div>
+
+</body>
+</html>
