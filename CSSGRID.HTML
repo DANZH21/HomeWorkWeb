@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Домашка Flexbox</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* --------------------- */
+/*   ЗАДАНИЕ 1 — КОЛОНКИ */
+/* --------------------- */
+.news {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.news .col {
+    flex: 1; /* одинаковая ширина */
+    background: #f3f3f3;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* --------------------- */
+/*   ЗАДАНИЕ 2 — ЧАТ     */
+/* --------------------- */
+.chat {
+    padding: 20px;
+}
+
+.msg {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.msg.me {
+    flex-direction: row-reverse;
+}
+
+.msg img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.bubble {
+    max-width: 60%;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 10px;
+}
+
+.msg.me .bubble {
+    background: #d1ffd1;
+    text-align: right;
+}
+
+.msg.other .bubble {
+    background: #d6e4ff;
+    text-align: left;
+}
+
+.name {
+    font-size: 13px;
+    opacity: .7;
+    margin-bottom: 3px;
+}
+
+/* --------------------------- */
+/*   ЗАДАНИЕ 3 — ДОСКИ ЗАДАЧ   */
+/* --------------------------- */
+.boards-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.boards-title {
+    background: #333;
+    color: white;
+    padding: 15px;
+    font-size: 22px;
+    position: sticky; /* stays fixed */
+    top: 0;
+}
+
+.boards {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* horizontal scroll */
+    padding: 20px;
+}
+
+.board {
+    background: #444;
+    color: white;
+    width: 350px; /* between 300–400 */
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tasks {
+    margin-top: 10px;
+    overflow-y: auto; /* vertical scroll */
+    max-height: calc(100vh - 150px);
+    padding-right: 10px;
+}
+
+.task {
+    background: #555;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ -->
+<!--     ЗАДАНИЕ 1 — КОЛОНКИ      -->
+<!-- ============================ -->
+<h2 style="padding: 20px">Задание 1 — Новости</h2>
+
+<div class="news">
+    <div class="col">
+        <h3>Новость 1</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ullam nemo!</p>
+    </div>
+    <div class="col">
+        <h3>Новость 2</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ullam nemo!</p>
+    </div>
+    <div class="col">
+        <h3>Новость 3</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ullam nemo!</p>
+    </div>
+</div>
+
+<!-- ============================ -->
+<!--       ЗАДАНИЕ 2 — ЧАТ        -->
+<!-- ============================ -->
+<h2 style="padding: 20px">Задание 2 — Чат</h2>
+
+<div class="chat">
+
+    <div class="msg other">
+        <img src="https://via.placeholder.com/50">
+        <div>
+            <div class="name">Андрей — 12:31</div>
+            <div class="bubble">Привет! Как дела?</div>
+        </div>
+    </div>
+
+    <div class="msg me">
+        <img src="https://via.placeholder.com/50">
+        <div>
+            <div class="name">Я — 12:32</div>
+            <div class="bubble">Нормально, делаю домашку.</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- ============================ -->
+<!--    ЗАДАНИЕ 3 — ДОСКИ         -->
+<!-- ============================ -->
+<h2 style="padding: 20px">Задание 3 — Доски задач</h2>
+
+<div class="boards-wrapper">
+    <div class="boards-title">MY BOARDS</div>
+
+    <div class="boards">
+
+        <div class="board">
+            <h3>To Do</h3>
+            <div class="tasks">
+                <div class="task">Task one example text</div>
+                <div class="task">Task two example text</div>
+                <div class="task">Task three example text</div>
+            </div>
+        </div>
+
+        <div class="board">
+            <h3>In Progress</h3>
+            <div class="tasks">
+                <div class="task">Long task text lorem ipsum dolor sit amet</div>
+                <div class="task">Another task</div>
+                <div class="task">And more</div>
+                <div class="task">Scrolling example item</div>
+                <div class="task">Scrolling example</div>
+                <div class="task">Scrolling example</div>
+                <div class="task">Scrolling example</div>
+            </div>
+        </div>
+
+        <div class="board">
+            <h3>Done</h3>
+            <div class="tasks">
+                <div class="task">Finish work</div>
+                <div class="task">Upload homework</div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
